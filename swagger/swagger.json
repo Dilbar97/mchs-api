@@ -1,0 +1,142 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Antares и Winisland projects api",
+        "description": "Общее апи для двух проектов, содержание внутри отличается контентом",
+        "version": "1.0.0",
+        "termsOfService": "https://antaresgambling.com/",
+        "contact": {
+            "email": "sanzhar.sarsenbi@gmail.cim"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/main/categories": {
+            "get": {
+                "tags": [
+                    "main"
+                ],
+                "description": "Метод получения всех категории",
+                "operationId": "MainController.News",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/responses.CategoriesResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/main/news": {
+            "get": {
+                "tags": [
+                    "main"
+                ],
+                "description": "Метод получения всех новостей",
+                "operationId": "MainController.News",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/responses.NewsResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "responses.Adds": {
+            "title": "Adds",
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "responses.Categories": {
+            "title": "Categories",
+            "type": "object",
+            "properties": {
+                "adds": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/responses.Adds"
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "responses.CategoriesResponse": {
+            "title": "CategoriesResponse",
+            "type": "object",
+            "properties": {
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/responses.Categories"
+                    }
+                },
+                "success": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "responses.News": {
+            "title": "News",
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "responses.NewsResponse": {
+            "title": "NewsResponse",
+            "type": "object",
+            "properties": {
+                "news": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/responses.News"
+                    }
+                },
+                "success": {
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}
